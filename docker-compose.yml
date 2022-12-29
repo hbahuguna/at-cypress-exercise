@@ -1,0 +1,10 @@
+version: '1.0.0'
+services: 
+    e2e-airtable-cypress:
+        image: airtable-cypress-test
+        build: .
+        container_name: airtable-cypress-test
+        environment: 
+            CYPRESS_password: ${CYPRESS_password}
+        command: 
+            npx cypress run --spec "**/*.cy.js" --browser chrome
